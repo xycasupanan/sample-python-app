@@ -1,5 +1,6 @@
-FROM python:3.8.0-alpine3.10
-# Python docker images: https://github.com/docker-library/docs/tree/master/python/
+#FROM python:3.8.0-alpine3.10
+FROM python:3.11-alpine3.20
+#Python docker images: https://github.com/docker-library/docs/tree/master/python/
 
 USER root
 
@@ -11,9 +12,10 @@ RUN ls -la /app
 
 # Install python dependencies
 RUN python3 --version
-RUN pip3 install --upgrade pip
-RUN pip3 install --no-cache-dir -r /app/requirements.txt
-RUN pip3 list --format=columns
+RUN pip install --upgrade pip
+RUN pip install Flask
+#RUN pip install --no-cache-dir -r /app/requirements.txt
+RUN pip list --format=columns
 
 USER 1001
 
